@@ -1,0 +1,42 @@
+.header {
+  text-align: center;
+  padding: 20px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 350px;
+}
+
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark-gray);
+  margin-top: 20px;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--medium-gray);
+  max-width: 900px;
+  margin: 10px auto;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 120px;
+  }
+}
