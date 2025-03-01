@@ -1,0 +1,105 @@
+.filtersBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.searchContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: #ffecec;
+  padding: 12px;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: red;
+}
+
+input {
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: red;
+  outline: none;
+  width: 100%;
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 16px;
+  margin-top: 12px;
+}
+
+.heroCount {
+  font-size: 16px;
+  color: #555;
+  flex: 1;
+  text-align: left;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.sortContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 12px;
+}
+
+.favoritesContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+.sortButton, .favoritesButton {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: red;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sortButton:hover, .favoritesButton:hover {
+  color: darkred;
+}
+
+.icon {
+  width: 15px;
+  height: 25px;
+  margin-right: -5px;
+}
+
+.toggleIcon {
+  width: 50px;
+  height: 30px;
+  cursor: pointer;
+}
