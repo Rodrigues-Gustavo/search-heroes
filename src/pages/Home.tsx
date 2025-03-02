@@ -4,6 +4,7 @@ import styles from "./Home.module.css";
 import { Character } from "../types/character";
 import Header from "../components/Header";
 import FiltersBar from "../components/FiltersBar";
+import CharacterGrid from "../components/CharacterGrid";
 
 const Home = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -41,15 +42,8 @@ const Home = () => {
         onSort={() => {}}
         onToggleFavorites={() => {}}
       />
-
-      <div>
-        {filteredCharacters.map((hero) => (
-          <div key={hero.id}>
-            <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt={hero.name} />
-            <p>{hero.name}</p>
-          </div>
-        ))}
-      </div>
+      <br />
+      <CharacterGrid characters={characters} onToggleFavorite={() => {}}/>
     </div>
   );
 };
