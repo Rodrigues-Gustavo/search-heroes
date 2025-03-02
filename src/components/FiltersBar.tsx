@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./FiltersBar.module.css";
 import searchIcon from "../../public/assets/busca/Lupa/Shape.png";
 import sortIcon from "../../public/assets/icones/heroi/noun_Superhero_2227044.png";
@@ -12,6 +13,14 @@ interface FiltersBarProps {
 }
 
 const FiltersBar = ({ totalHeroes, onSearch, onSort, onToggleFavorites }: FiltersBarProps) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+    onSearch(value); // Chama a função para atualizar os resultados
+  };
+
   return (
     <div className={styles.filtersBar}>
       <div className={styles.searchContainer}>
@@ -20,7 +29,8 @@ const FiltersBar = ({ totalHeroes, onSearch, onSort, onToggleFavorites }: Filter
           <input
             type="text"
             placeholder="Procure por heróis"
-            onChange={(e) => onSearch(e.target.value)}
+            value={searchTerm}
+            onChange={handleSearchChange}
           />
         </div>
       </div>
