@@ -14,15 +14,20 @@ const getAuthParams = () => {
 
 export const marvelApi = axios.create({ baseURL: BASE_URL });
 
-export const fetchCharacters = async (nameFilter: string = "", orderBy: string = "name", offset: number = 0): Promise<Character[]> => {
+export const fetchCharacters = async (nameFilter: string = ""): Promise<Character[]> => {
   try {
-    const response = await marvelApi.get(`/characters?${getAuthParams()}&limit=20&offset=${offset}&orderBy=${orderBy}${nameFilter ? `&nameStartsWith=${nameFilter}` : ""}`);
+    const response = await marvelApi.get(
+      `/characters?${getAuthParams()}&limit=20&orderBy=modified${nameFilter ? `&nameStartsWith=${nameFilter}` : ""}`
+    );
     return response.data.data.results;
   } catch (error) {
     console.error("Erro ao buscar personagens:", error);
     return [];
   }
 };
+
+
+
 
 export const fetchCharacterDetails = async (id: number): Promise<Character | null> => {
   try {
