@@ -16,16 +16,16 @@
 
 
 .title {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
-  color: var(--dark-gray);
+  color: #404040;
   margin-top: 20px;
 }
 
 .subtitle {
   font-size: 16px;
   font-weight: 400;
-  color: var(--medium-gray);
+  color: #8C8C8C;
   max-width: 900px;
   margin: 10px auto;
 }
