@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { fetchCharacters } from "../services/marvelApi";
 import styles from "./Home.module.css";
 import { Character } from "../types/character";
@@ -21,7 +21,7 @@ const Home = () => {
     loadCharacters();
   }, []);
 
-  const handleSearch = (query: string) => {
+  const handleSearch = useCallback((query: string) => {
     setSearchQuery(query);
     if (query) {
       const filtered = characters.filter((char) =>
@@ -31,7 +31,7 @@ const Home = () => {
     } else {
       setFilteredCharacters(characters);
     }
-  };
+  }, [characters]);
 
   return (
     <div className={styles.container}>
@@ -43,7 +43,7 @@ const Home = () => {
         onToggleFavorites={() => {}}
       />
       <br />
-      <CharacterGrid characters={characters} onToggleFavorite={() => {}}/>
+      <CharacterGrid characters={filteredCharacters} onToggleFavorite={() => {}} />
     </div>
   );
 };
