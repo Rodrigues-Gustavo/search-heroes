@@ -1,24 +1,24 @@
 import { useState } from "react";
 import styles from "./FiltersBar.module.css";
 import searchIcon from "../../public/assets/busca/Lupa/Shape.png";
-import sortIcon from "../../public/assets/icones/heroi/noun_Superhero_2227044.png";
+import heroIcon from "../../public/assets/icones/heroi/noun_Superhero_2227044.png";
 import heartIcon from "../../public/assets/icones/heart/Path.svg";
-import toggleIcon from "../../public/assets/toggle/Group 6.png";
 
 interface FiltersBarProps {
   totalHeroes: number;
   onSearch: (query: string) => void;
   onSort: () => void;
   onToggleFavorites: () => void;
+  sortIcon: string;
 }
 
-const FiltersBar = ({ totalHeroes, onSearch, onSort, onToggleFavorites }: FiltersBarProps) => {
+const FiltersBar = ({ totalHeroes, onSearch, onSort, onToggleFavorites, sortIcon }: FiltersBarProps) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearchTerm(value);
-    onSearch(value); // Chama a função para atualizar os resultados
+    onSearch(value);
   };
 
   return (
@@ -40,11 +40,16 @@ const FiltersBar = ({ totalHeroes, onSearch, onSort, onToggleFavorites }: Filter
 
         <div className={styles.actions}>
           <div className={styles.sortContainer}>
-            <img src={sortIcon} alt="Ordenar" className={styles.icon} />
+            <img src={heroIcon} alt="Ordenar" className={styles.icon} />
             <button className={styles.sortButton} onClick={onSort}>
               Ordenar por nome - A/Z
             </button>
-            <img src={toggleIcon} alt="Alternar ordem" className={styles.toggleIcon} onClick={onSort} />
+            <img
+              src={sortIcon} 
+              alt="Alternar ordem"
+              className={`${styles.toggleIcon} ${styles.animated}`}
+              onClick={onSort}
+            />
           </div>
 
           <div className={styles.favoritesContainer}>
